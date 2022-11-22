@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class OrderPdf < Prawn::Document
     def initialize(tools)
         super(top_margin: 20)
