@@ -8,7 +8,7 @@
 * Customer can have many tools in one order
 
 
-Workflow:
+Rent steps:
 1. Customer comes to the branch. Aproaches manager and gives his detail.
 2. Manager find the customer by his name, code.
 3. Manager assigns tool with the number.
