@@ -14,10 +14,10 @@ class OrderPdf < Prawn::Document
   end
 
   def tools_table
-    [['ID','Name','Body']]+
-    @tools.each do |tool|
-      [tool.id, tool.name, tool.body]
-    end
+    [['ID', 'Name', 'Body']]+
+      @tools.each do |tool|
+        [tool.id, tool.name, tool.body]
+      end
   end
 
 end
