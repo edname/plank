@@ -9,7 +9,7 @@ class ToolsController < ApplicationController
       format.html
       format.pdf do
         pdf = OrderPdf.new(@tools)
-        send_data(pdf.render, filename:"tools.pdf", type:"application/pdf", disposition:"inline")
+        send_data(pdf.render, filename:'tools.pdf', type:'application/pdf', disposition:'inline')
       end
     end
     
@@ -26,10 +26,10 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new tool_params
     if @tool.save
-      flash[:success] = "Tool was created"
+      flash[:success] = 'Tool was created'
       redirect_to tools_path
     else
-      flash[:error] = "Something went wrong."
+      flash[:error] = 'Something went wrong.'
       redirect_to :new
     end
   end

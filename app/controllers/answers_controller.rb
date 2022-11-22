@@ -8,11 +8,11 @@ class AnswersController < ApplicationController
         @answer = @question.answers.build answer_params
 
         if @answer.save
-            flash[:success] = "Answer was created"
+            flash[:success] = 'Answer was created'
             redirect_to question_path(@question)
         else
             @answers = @question.answers.order created_at: :desc
-            render "questions/show"
+            render 'questions/show'
         end
     end
 
@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
 
     def update
         if @answer.update answer_params
-            flash[:success] = "Questions was successfully updated"
+            flash[:success] = 'Questions was successfully updated'
             redirect_to question_path(@question, anchor: dom_id(@answer))
         else
             render :edit
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
 
     def destroy
         @answer.destroy
-        flash[:success] = "Answer was successfully deleted."
+        flash[:success] = 'Answer was successfully deleted.'
         redirect_to question_path(@question)
     end
 

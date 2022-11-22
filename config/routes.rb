@@ -13,14 +13,14 @@ Rails.application.routes.draw do
 
   resources :tools, only: %i[index new create]
 
-  get "/tools/preview", to: "tools#preview"
+  get '/tools/preview', to: 'tools#preview'
 
   resources :questions do
     #resources :answers, only: %i[create destroy edit update]
     resources :answers, except: %i[new show]
   end
 
-  root "pages#index"
+  root 'pages#index'
 
 
 end

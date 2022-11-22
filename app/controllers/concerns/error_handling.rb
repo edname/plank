@@ -8,7 +8,7 @@ module ErrorHandling
     
         def notfound(exception)
             logger.warn exception
-            render file: "public/404.html", status: :not_found, layout: true
+            render file: 'public/404.html', status: :not_found, layout: true
         end        
     end
 end

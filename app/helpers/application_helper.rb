@@ -2,8 +2,8 @@ module ApplicationHelper
     include Pagy::Frontend
 
 
-    def full_title(page_title = "")
-        base_title = "Plank"
+    def full_title(page_title = '')
+        base_title = 'Plank'
         if page_title.present?
             "#{page_title} | #{base_title} "
         else
@@ -11,13 +11,13 @@ module ApplicationHelper
         end
     end
 
-    def currently_at(current_page = "")
+    def currently_at(current_page = '')
         render partial: 'shared/menu', locals: {current_page: current_page}
     end
 
     def nav_tab(title, url, options = {})
         current_page = options.delete :current_page
-        css_class = current_page == title ? "active" : ""
+        css_class = current_page == title ? 'active' : ''
 
         options[:class] = if options[:class]
                             options[:class] + ' ' + css_class

@@ -21,10 +21,10 @@ class QuestionsController < ApplicationController
     def create
         @question = Question.new question_params
         if @question.save
-            flash[:success] = "Questions was created"
+            flash[:success] = 'Questions was created'
             redirect_to questions_path
         else
-            flash[:error] = "Something went wrong"
+            flash[:error] = 'Something went wrong'
             render :new
         end
     end
@@ -34,10 +34,10 @@ class QuestionsController < ApplicationController
 
     def update
         if @question.update question_params
-          flash[:success] = "Questions was successfully updated"
+          flash[:success] = 'Questions was successfully updated'
           redirect_to questions_path
         else
-          flash[:error] = "Something went wrong"
+          flash[:error] = 'Something went wrong'
           render 'edit'
         end
     end
