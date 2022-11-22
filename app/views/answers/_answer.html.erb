@@ -1,0 +1,13 @@
+
+        
+
+                <li class="list-group-item" id="<%= dom_id(answer) %>">
+                    <div>
+                        <%= sanitize answer.body %>
+                            - <small class="text-muted">Created: <%= answer.formatted_created_at %></small>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <%= nav_tab "Edit", edit_question_answer_path(question, answer), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                            <%= nav_tab "Delete", question_answer_path(question, answer), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                        </div>
+                    </div>
+                </li>

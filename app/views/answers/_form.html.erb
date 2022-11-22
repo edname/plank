@@ -1,0 +1,11 @@
+
+    <%= render "shared/flash" %>
+    <%= render "shared/errors", object: @answer %>
+
+    <%= form_with :class => "my-3", model: [@question, @answer] do |f| %>
+        <div class="form-group">
+            <%= f.text_area :body, :class => 'form-control' %>
+        </div>
+
+        <%= f.submit :class => 'btn btn-primary mt-2' %>
+    <% end %>

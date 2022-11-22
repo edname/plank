@@ -1,0 +1,21 @@
+
+    <%= provide :main_menu do %>
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 sidebar-sticky">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <%= nav_tab 'Dashboard', root_path, class: 'nav-link bi bi-house', current_page: current_page %>
+                </li>
+                <li class="nav-item">
+                    <%= nav_tab 'Questions', questions_path, class: 'nav-link bi bi-question-circle', current_page: current_page %>
+                </li>
+                <li class="nav-item">
+                    <%= nav_tab 'Tools', tools_path, class: 'nav-link bi bi-hammer', current_page: current_page %>
+                </li>
+                <li class="nav-item">
+                    <%= nav_tab 'Sign Up', new_user_path, class: 'nav-link bi bi-box-arrow-in-right', current_page: current_page %>
+                </li>                
+            </ul>
+        </div>
+        </nav>
+    <% end %>
