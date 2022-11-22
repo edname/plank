@@ -1,24 +1,8 @@
-# README
+# Todo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+When person is hiring tool he gets assigned tool with the number.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Each Tool could have many tools.
+	Tool 'Saw' could have Saw Nr1, Saw Nr2, Saw Nr3 
+    Each tool will have it's own history repair dates, prices, rent history.
+    If tool in repair it disabled not available to hire   
