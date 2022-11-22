@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ToolsController < ApplicationController
   before_action :set_tool!, only: %i[edit]
 

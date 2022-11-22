@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :set_question!, only: %i[show edit update destroy]
 
