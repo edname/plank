@@ -11,7 +11,7 @@ module ApplicationHelper
     end
 
     def currently_at(current_page = '')
-        render partial: 'shared/menu', locals: {current_page: current_page}
+        render partial: 'shared/menu', locals: { current_page: current_page }
     end
 
     def nav_tab(title, url, options = {})
