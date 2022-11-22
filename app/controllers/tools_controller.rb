@@ -22,7 +22,6 @@ class ToolsController < ApplicationController
     @tool = Tool.new
   end
 
-
   def create
     @tool = Tool.new tool_params
     if @tool.save
@@ -42,6 +41,5 @@ class ToolsController < ApplicationController
   def set_tool!
     @tool = Tool.find params[:id]
   end
-
 
 end
