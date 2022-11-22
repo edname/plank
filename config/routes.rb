@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/tools/preview', to: 'tools#preview'
 
   resources :questions do
-    #resources :answers, only: %i[create destroy edit update]
+    # resources :answers, only: %i[create destroy edit update]
     resources :answers, except: %i[new show]
   end
 

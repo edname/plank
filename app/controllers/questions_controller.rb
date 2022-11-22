@@ -5,15 +5,15 @@ class QuestionsController < ApplicationController
 
   def index
     @pagy, @questions = pagy(Question.order(created_at: :desc), items: 12)
-      #@questions = Question.order(created_at: :desc).page params[:page] -This was used for kaminari
+      # @questions = Question.order(created_at: :desc).page params[:page] -This was used for kaminari
   end
 
   def show
     @answer = @question.answers.build
       @pagy, @answers = pagy @question.answers.order(created_at: :desc)
-      #@answers = @question.answers.order(created_at: :desc).page(params[:page]).per(2) -This was used for kaminari
-      #@answers = Answer.where(question_id: @question.id).order created_at: :desc
-      #@answers = Answer.where(question: @question).order created_at: :desc
+      # @answers = @question.answers.order(created_at: :desc).page(params[:page]).per(2) -This was used for kaminari
+      # @answers = Answer.where(question_id: @question.id).order created_at: :desc
+      # @answers = Answer.where(question: @question).order created_at: :desc
   end
 
   def new

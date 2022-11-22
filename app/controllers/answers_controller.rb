@@ -3,7 +3,7 @@
 class AnswersController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :set_question!
-    #before_action :set_answer!, only: %i[edit update destroy]
+    # before_action :set_answer!, only: %i[edit update destroy]
   before_action :set_answer!, except: :create
 
   def create
