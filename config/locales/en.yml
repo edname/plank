@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  user_welcome: "Welcome to the app, #{@user.name}!"
+  question_created: "Questions was created"
+  question_updated: "Questions was updated"
+  question_deleted: "Questions was removed"
+  answer_created: "Answer was created"
+  answer_updated: "Answer was updated"
+  answer_deleted: "Answer was deleted"
+  tool_created: "Tool was created"
+  tool_updated: "Tool was updated"
+  tool_deleted: "Tool was deleted"
+  error: "Somethin went wrong"

@@ -7,18 +7,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-      if @user.save
-        flash[:success] = "Welcome to the app, #{@user.name}!"
-          redirect_to root_path
-      else
-        flash[:error] = 'Something went wrong'
-          render :new
-      end
+    if @user.save
+      flash[:success] = t(:user_welcome)
+      redirect_to root_path
+    else
+      flash[:error] = t(:error)
+      render :new
+    end
   end
 
-    private
+  private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_comfirmation)
   end
-
 end

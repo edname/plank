@@ -6,11 +6,11 @@ module ErrorHandling
   included do
     rescue_from ActiveRecord::RecordNotFound, with: :notfound
 
-      private
-  
-      def notfound(exception)
-        logger.warn exception
-          render file: 'public/404.html', status: :not_found, layout: true
-      end        
+    private
+
+    def notfound(exception)
+      logger.warn exception
+      render file: 'public/404.html', status: :not_found, layout: true
+    end
   end
 end

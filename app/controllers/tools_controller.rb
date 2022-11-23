@@ -5,37 +5,36 @@ class ToolsController < ApplicationController
 
   def index
     @pagy, @tools = pagy Tool.order(name: :asc)
-   
+
     @tools = Tool.all
-    respond_to do |format|  
+    respond_to do |format|
       format.html
       format.pdf do
         pdf = OrderPdf.new(@tools)
-        send_data(pdf.render, filename:'tools.pdf', type:'application/pdf', disposition:'inline')
+        send_data(pdf.render, filename: 'tools.pdf', type: 'application/pdf', disposition: 'inline')
       end
     end
-    
-  end
-
-  def edit
   end
 
   def new
     @tool = Tool.new
   end
 
+  def edit; end
+
   def create
     @tool = Tool.new tool_params
     if @tool.save
-      flash[:success] = 'Tool was created'
+      flash[:success] = t(:tool_created)
       redirect_to tools_path
     else
-      flash[:error] = 'Something went wrong.'
+      flash[:error] = t(:error)
       redirect_to :new
     end
   end
 
   private
+
   def tool_params
     params.require(:tool).permit(:name, :body)
   end
@@ -43,5 +42,4 @@ class ToolsController < ApplicationController
   def set_tool!
     @tool = Tool.find params[:id]
   end
-
 end
