@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_114519) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_211744) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id", null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_114519) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tool_variants", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tool_id"
+    t.string "tool_number"
+    t.index ["tool_id"], name: "index_tool_variants_on_tool_id"
   end
 
   create_table "tools", force: :cascade do |t|
