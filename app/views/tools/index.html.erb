@@ -22,17 +22,28 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Body</th>
+                <th scope="col">Description</th>
+                <th scope="col">Total</th>
+                <th scope="col">Inrent</th>
+                <th scope="col">Broken</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <% @tools.each do |tool| %>
             <tr>
-                <th scope="row"><%= tool.id %></th>
+                <td><%= tool.id %></td>
                 <td><%= tool.name %></td>
                 <td><%= tool.body %></td>
-                <td><%= nav_tab "Show", tool_path(tool), :method => "get", :class => 'btn btn-sm btn-outline-primary' %></td>
+                <td><%= tool.toolVariants.count %></td>
+                <td> inrent </td>
+                <td> broken </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Show", tool_path(tool), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                        <%= nav_tab "Delete", tool_path(tool), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                </td>
             </tr>
             <% end %>
         </tbody>

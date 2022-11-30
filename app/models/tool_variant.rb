@@ -1,5 +1,7 @@
-class ToolVariant < ApplicationRecord
-    belongs_to :tool
+# frozen_string_literal: true
 
-    validates :tool_number, presence: true, uniqueness: true
+class ToolVariant < ApplicationRecord
+  belongs_to :tool
+
+  validates :tool_number, presence: true
 end
