@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
 
-  resources :tools, only: %i[index new create show destroy] do
+  resources :tools do
     resources :tool_variants, only: %i[show create edit destroy]
   end
 

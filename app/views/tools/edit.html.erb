@@ -1,0 +1,15 @@
+
+ 
+    <% provide :page_title, "Edit tool" %>
+    <% currently_at "Tools" %>
+
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit tool</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <%= button_to "Back", tool_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "form" %>

@@ -41,6 +41,7 @@
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <%= nav_tab "Show", tool_path(tool), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                        <%= nav_tab "Edit", edit_tool_path(tool), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
                         <%= nav_tab "Delete", tool_path(tool), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
                     </div>
                 </td>

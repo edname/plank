@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ToolsController < ApplicationController
-  before_action :set_tool!, only: %i[edit show destroy]
+  before_action :set_tool!, only: %i[show edit update destroy]
 
   def index
     @pagy, @tools = pagy Tool.order(name: :asc)
@@ -35,6 +35,16 @@ class ToolsController < ApplicationController
     else
       flash[:error] = t(:error)
       redirect_to :new
+    end
+  end
+
+  def update
+    if @tool.update tool_params
+      flash[:success] = t(:tool_updated)
+      redirect_to tools_path
+    else
+      flash[:error] = t(:error)
+      render 'edit'
     end
   end
 
