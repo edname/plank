@@ -23,6 +23,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Body</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <th scope="row"><%= tool.id %></th>
                 <td><%= tool.name %></td>
                 <td><%= tool.body %></td>
+                <td><%= nav_tab "Show", tool_path(tool), :method => "get", :class => 'btn btn-sm btn-outline-primary' %></td>
             </tr>
             <% end %>
         </tbody>

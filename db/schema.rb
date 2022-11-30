@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_211744) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id", null: false
@@ -28,10 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_211744) do
 
   create_table "tool_variants", force: :cascade do |t|
     t.text "body"
+    t.text "tool_number"
+    t.integer "tool_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tool_id"
-    t.string "tool_number"
     t.index ["tool_id"], name: "index_tool_variants_on_tool_id"
   end
 
@@ -52,4 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_211744) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "tool_variants", "tools"
 end

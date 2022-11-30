@@ -41,4 +41,5 @@ en:
   tool_created: "Tool was created"
   tool_updated: "Tool was updated"
   tool_deleted: "Tool was deleted"
+  tool_variant_created: "Tool variant was created"
   error: "Somethin went wrong"

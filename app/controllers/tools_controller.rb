@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ToolsController < ApplicationController
-  before_action :set_tool!, only: %i[edit]
+  before_action :set_tool!, only: %i[edit show]
 
   def index
     @pagy, @tools = pagy Tool.order(name: :asc)
@@ -14,6 +14,11 @@ class ToolsController < ApplicationController
         send_data(pdf.render, filename: 'tools.pdf', type: 'application/pdf', disposition: 'inline')
       end
     end
+  end
+
+  def show
+    @tool_variant = @tool.toolVariants.build
+    @pagy, @tool_variants = pagy @tool.toolVariants.order(tool_number: :desc)
   end
 
   def new

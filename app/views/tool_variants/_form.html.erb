@@ -1,0 +1,14 @@
+
+    <%= render "shared/flash" %>
+    <%= render "shared/errors", object: @tool_variant %>
+
+    <%= form_with :class => "my-3", model: [@tool, @tool_variant] do |f| %>
+        <div class="form-group">
+            <%= f.label :tool_number %>
+            <%= f.text_field :tool_number, :class => 'form-control' %>
+            <%= f.label :body %>
+            <%= f.text_field :body, :class => 'form-control' %>
+        </div>
+
+        <%= f.submit :class => 'btn btn-primary mt-2' %>
+    <% end %>
