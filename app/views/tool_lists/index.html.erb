@@ -1,0 +1,51 @@
+
+
+    <% provide :page_title, "Tool lists" %>
+    <% currently_at "Tool lists" %>
+
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Tool lists</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <%= button_to "New tool list", new_tool_list_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                <%= button_to "View as PDF", tool_lists_path(@tool_list, format: "pdf"), form: {target: '_blank'}, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "shared/flash" %>
+
+    <%== pagy_bootstrap_nav @pagy %>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Total</th>
+                <th scope="col">Inrent</th>
+                <th scope="col">Broken</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tool_lists.each do |tool_list| %>
+            <tr>
+                <td><%= tool_list.id %></td>
+                <td><%= link_to tool_list.name, tool_list_path(tool_list) %></td>
+                <td><%= tool_list.body %></td>
+                <td><%= tool_list.tool_numbers.count %></td>
+                <td> inrent </td>
+                <td> broken </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Show", tool_list_path(tool_list), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                        <%= nav_tab "Edit", edit_tool_list_path(tool_list), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                        <%= nav_tab "Delete", tool_list_path(tool_list), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

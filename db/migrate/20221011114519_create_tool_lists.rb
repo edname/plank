@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateTools < ActiveRecord::Migration[7.0]
+class CreateToolLists < ActiveRecord::Migration[7.0]
   def change
-    create_table :tools do |t|
+    create_table :tool_lists do |t|
       t.string :name
       t.text :body
 

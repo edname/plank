@@ -3,13 +3,13 @@
     <% currently_at "Tools variant show" %>
 
     <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h5"><%= @tool_variant.tool_number %> - <%=@tool.name %></h1>
+        <h1 class="h5"><%= @tool_number.number %> - <%=@tool_list.name %></h1>
     </div>
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"><%=@tool.name %></h5>
-            <p class="card-text"><%= @tool_variant.tool_number %></p>
-            <p class="card-text"><%= @tool_variant.body %></p>
+            <h5 class="card-title"><%=@tool_list.name %></h5>
+            <p class="card-text"><%= @tool_number.number %></p>
+            <p class="card-text"><%= @tool_number.body %></p>
         </div>
     </div>

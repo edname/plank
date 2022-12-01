@@ -26,20 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tool_variants", force: :cascade do |t|
-    t.text "body"
-    t.text "tool_number"
-    t.integer "tool_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tool_id"], name: "index_tool_variants_on_tool_id"
-  end
-
-  create_table "tools", force: :cascade do |t|
+  create_table "tool_lists", force: :cascade do |t|
     t.string "name"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tool_numbers", force: :cascade do |t|
+    t.text "body"
+    t.integer "number"
+    t.integer "tool_list_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tool_list_id"], name: "index_tool_numbers_on_tool_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,5 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "tool_variants", "tools"
+  add_foreign_key "tool_numbers", "tool_lists"
 end

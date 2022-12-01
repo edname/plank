@@ -1,0 +1,2 @@
+class ToolCategoriesController < ApplicationController
+end

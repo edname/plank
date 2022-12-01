@@ -1,11 +1,11 @@
 
     <%= render "shared/flash" %>
-    <%= render "shared/errors", object: @tool_variant %>
+    <%= render "shared/errors", object: @tool_number %>
 
-    <%= form_with :class => "my-3", model: [@tool, @tool_variant] do |f| %>
+    <%= form_with :class => "my-3", model: [@tool_list, @tool_number] do |f| %>
         <div class="form-group">
-            <%= f.label :tool_number %>
-            <%= f.text_field :tool_number, :class => 'form-control' %>
+            <%= f.label :number %>
+            <%= f.text_field :number, :class => 'form-control' %>
             <%= f.label :body %>
             <%= f.text_field :body, :class => 'form-control' %>
         </div>

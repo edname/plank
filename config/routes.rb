@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
 
-  resources :tools do
-    resources :tool_variants, only: %i[new edit create update destroy show]
+  resources :tool_lists do
+    resources :tool_numbers, only: %i[new edit create update destroy show]
   end
 
-  get '/tools/preview', to: 'tools#preview'
+  get '/tool_lists/preview', to: 'tool_lists#preview'
 
   resources :questions do
     # resources :answers, only: %i[create destroy edit update]

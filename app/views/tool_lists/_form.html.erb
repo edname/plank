@@ -1,7 +1,7 @@
 
-<%= render "shared/errors", object: @tool %>
+<%= render "shared/errors", object: @tool_list %>
 
-<%= form_with model: @tool do |f| %>
+<%= form_with model: @tool_list do |f| %>
     <div class="form-group">
         <%= f.label :Name, "Name" %>
         <%= f.text_field :name, :class => 'form-control', required: true, placeholder: "Name" %>

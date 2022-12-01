@@ -1,0 +1,18 @@
+
+
+
+            <tr>
+                <td><%= tool_number.number %></td>
+                <td><%= tool_list.name %></td>
+                <td>current_status</td>
+                <td>work_hours</td>
+                <td>rent_count</td>
+                <td><%= tool_number.body %></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Show", tool_list_tool_number_path(tool_list, tool_number), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                        <%= nav_tab "Edit", edit_tool_list_tool_number_path(tool_list, tool_number), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                        <%= nav_tab "Delete", tool_list_tool_number_path(tool_list, tool_number), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                </td>
+            </tr>
