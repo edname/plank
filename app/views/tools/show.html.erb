@@ -1,16 +1,16 @@
 
-    <% provide :page_title, "Tool" %>
+    <% provide :page_title, "Tool variants" %>
     <% currently_at "Tools" %>
 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"><%=@tool.name %></h5>
-            <p class="card-text"><%= sanitize @tool.body %></p>
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><%=@tool.name %> variants</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <%= button_to "New variant", new_tool_tool_variant_path(@tool), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                <%= button_to "Back", tools_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+            </div>
         </div>
-    </div> 
-
-    <%= render "tool_variants/form" %>
-
+    </div>
 
     <div class="card my-3">
         <div class="table-responsive">

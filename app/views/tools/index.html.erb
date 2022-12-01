@@ -8,7 +8,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
                 <%= button_to "New tool", new_tool_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
-                <%= button_to "View PDF", tools_path(@tool, format: "pdf"), form: {target: '_blank'}, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                <%= button_to "View as PDF", tools_path(@tool, format: "pdf"), form: {target: '_blank'}, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
             <% @tools.each do |tool| %>
             <tr>
                 <td><%= tool.id %></td>
-                <td><%= tool.name %></td>
+                <td><%= link_to tool.name, tool_path(tool) %></td>
                 <td><%= tool.body %></td>
                 <td><%= tool.toolVariants.count %></td>
                 <td> inrent </td>
