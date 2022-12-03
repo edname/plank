@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
       redirect_to questions_path
     else
       flash[:error] = t(:error)
-      render :new
+      redirect_to :new
     end
   end
 

@@ -1,0 +1,46 @@
+
+
+    <% provide :page_title, "Tool categories" %>
+    <% currently_at "Tool categories" %>
+
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Tool categories</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <%= button_to "New tool category", new_tool_category_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "shared/flash" %>
+
+    <%== pagy_bootstrap_nav @pagy %>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Lists</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tool_categories.each do |tool_category| %>
+            <tr>
+                <td><%= tool_category.id %></td>
+                <td><%= link_to tool_category.name, tool_category_path(tool_category) %></td>
+                <td><%= tool_category.description %></td>
+                <td><%= tool_category.tool_list.count %></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Show", tool_category_path(tool_category), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                        <%= nav_tab "Edit", edit_tool_category_path(tool_category), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                        <%= nav_tab "Delete", tool_category_path(tool_category), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

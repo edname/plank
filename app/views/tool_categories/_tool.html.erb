@@ -1,0 +1,12 @@
+
+
+
+            <tr>
+                <td><%= tool_list.name %></td>
+                <td><%= tool_category.name %></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Show", tool_category_tool_list_path(tool_category, tool_list), :method => "get", :class => 'btn btn-sm btn-outline-primary' %>
+                    </div>
+                </td>
+            </tr>

@@ -12,6 +12,8 @@
         </div>
     </div>
 
+    <%= render "shared/flash" %>
+
     <%= form_with :class => "form row my-3", model: [@tool_list, @tool_number] do |f| %>
         <div class="col-3">
             <%= f.text_field :number, :class => 'form-control' %>

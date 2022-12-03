@@ -10,9 +10,21 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
 
-  resources :tool_lists do
-    resources :tool_numbers, only: %i[new edit create update destroy show]
+  resources :tool_categories do
+    resources :tool_lists
   end
+
+  resources :tool_lists do
+    resources :tool_numbers
+  end
+
+  # scope 'tool', as: 'tool' do
+  #   resources :tool_categories, as: 'category', path: 'category' do
+  #     resources :tool_lists, as: 'list', path: 'list' do
+  #       resources :tool_numbers, as: 'number', path: 'number'
+  #     end
+  #   end
+  # end
 
   get '/tool_lists/preview', to: 'tool_lists#preview'
 

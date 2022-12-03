@@ -1,0 +1,17 @@
+
+<%= render "shared/errors", object: @tool_category %>
+
+<%= form_with model: @tool_category do |f| %>
+    <div class="form-group">
+        <%= f.label :Name, "Name" %>
+        <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Description, "Description" %>
+        <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+
+    <%= f.submit "Submit", :class => 'form-control', disable_with: 'Submiting...' %>
+
+<% end %>

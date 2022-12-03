@@ -4,13 +4,17 @@
 <%= form_with model: @tool_list do |f| %>
     <div class="form-group">
         <%= f.label :Name, "Name" %>
-        <%= f.text_field :name, :class => 'form-control', required: true, placeholder: "Name" %>
+        <%= f.text_field :name, :class => 'form-control' %>
     </div>
 
     <div class="form-group">
         <%= f.label :Body, "Body" %>
         <%= f.text_area :body, :class => 'form-control' %>
     </div>
+
+    <div class="form-group" aria-label="Select tool group">
+        <%= f.select :tool_category_id, ToolCategory.pluck(:name, :id), {}, { :class => 'form-select' } %>
+    </div>    
 
     <%= f.submit "Submit", :class => 'form-control', disable_with: 'Submiting...' %>
 

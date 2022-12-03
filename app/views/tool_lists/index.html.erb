@@ -22,7 +22,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
+                <th scope="col">Category</th>
                 <th scope="col">Total</th>
                 <th scope="col">Inrent</th>
                 <th scope="col">Broken</th>
@@ -34,7 +34,7 @@
             <tr>
                 <td><%= tool_list.id %></td>
                 <td><%= link_to tool_list.name, tool_list_path(tool_list) %></td>
-                <td><%= tool_list.body %></td>
+                <td><%= tool_list.tool_category.name %></td>
                 <td><%= tool_list.tool_numbers.count %></td>
                 <td> inrent </td>
                 <td> broken </td>

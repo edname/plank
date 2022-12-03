@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_185721) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id", null: false
@@ -26,11 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tool_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tool_lists", force: :cascade do |t|
     t.string "name"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tool_category_id"
+    t.index ["tool_category_id"], name: "index_tool_lists_on_tool_category_id"
   end
 
   create_table "tool_numbers", force: :cascade do |t|
@@ -52,5 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192913) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "tool_lists", "tool_categories"
   add_foreign_key "tool_numbers", "tool_lists"
 end

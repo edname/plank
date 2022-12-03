@@ -34,7 +34,7 @@ class ToolListsController < ApplicationController
       redirect_to tool_lists_path
     else
       flash[:error] = t(:error)
-      redirect_to :new
+      render :new
     end
   end
 
@@ -60,10 +60,11 @@ class ToolListsController < ApplicationController
   private
 
   def tool_list_params
-    params.require(:tool_list).permit(:name, :body)
+    params.require(:tool_list).permit(:name, :body, :tool_category_id)
   end
 
   def set_tool_list!
     @tool_list = ToolList.find params[:id]
   end
+
 end
