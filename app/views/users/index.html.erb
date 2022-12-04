@@ -1,0 +1,34 @@
+
+
+    <% provide :page_title, "Users list" %>
+    <% currently_at "Users" %>
+
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Users index</h1>
+    </div>
+
+    <%= render "shared/flash" %>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Edit", edit_user_path(user), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                        <%= nav_tab "Delete", user_path(user), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                <td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

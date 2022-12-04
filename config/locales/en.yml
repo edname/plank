@@ -31,7 +31,6 @@
 
 en:
   hello: "Hello world"
-  user_welcome: "Welcome to the app, #{@user.name}!"
   question_created: "Questions was created"
   question_updated: "Questions was updated"
   question_deleted: "Questions was removed"
@@ -47,4 +46,7 @@ en:
   tool_number_created: "Tool variant was created"
   tool_number_updated: "Tool variant was updated"
   tool_number_deleted: "Tool variant was deleted"
+  user_created: "User was created"
+  user_deleted: "User was deleted"
+  user_updated: "User was updated"
   error: "Somethin went wrong"
