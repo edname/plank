@@ -29,9 +29,11 @@ class ToolListsController < ApplicationController
 
   def create
     @tool_list = ToolList.new tool_list_params
+    @tool_category = @tool_list.tool_category
+
     if @tool_list.save
       flash[:success] = t(:tool_list_created)
-      redirect_to tool_lists_path
+      redirect_to tool_category_path(@tool_category)
     else
       flash[:error] = t(:error)
       render :new

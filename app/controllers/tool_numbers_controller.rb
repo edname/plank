@@ -10,13 +10,14 @@ class ToolNumbersController < ApplicationController
 
   def create
     @tool_number = @tool_list.tool_numbers.build tool_number_params
+    @tool_category = @tool_list.tool_category
 
     if @tool_number.save
       flash[:success] = t(:tool_number_created)
-      redirect_to tool_list_path(@tool_list)
+      redirect_to tool_category_tool_list_path(@tool_category, @tool_list)
     else
       flash[:error] = t(:error)
-      render 'tool_lists/show'
+      render 'new'
     end
   end
 
