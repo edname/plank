@@ -56,7 +56,7 @@ class ToolListsController < ApplicationController
     else
       flash[:error] = t(:error)
     end
-    redirect_to tool_lists_path    
+    redirect_to tool_lists_path
   end
 
   private
@@ -68,5 +68,4 @@ class ToolListsController < ApplicationController
   def set_tool_list!
     @tool_list = ToolList.find params[:id]
   end
-
 end

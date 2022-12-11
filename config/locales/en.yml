@@ -49,4 +49,7 @@ en:
   user_created: "User was created"
   user_deleted: "User was deleted"
   user_updated: "User was updated"
+  customer_created: "Customer was created"
+  customer_deleted: "Customer was deleted"
+  customer_updated: "Customer was updated"
   error: "Somethin went wrong"

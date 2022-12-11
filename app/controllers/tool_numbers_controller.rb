@@ -1,12 +1,16 @@
+# frozen_string_literal: true
+
 class ToolNumbersController < ApplicationController
   before_action :set_tool_list!, only: %i[edit update new show create destroy]
   before_action :set_tool_number!, only: %i[edit update show destroy]
+
+  def show; end
 
   def new
     @tool_number = @tool_list.tool_numbers.new
   end
 
-  def show; end
+  def edit; end
 
   def create
     @tool_number = @tool_list.tool_numbers.build tool_number_params
@@ -20,8 +24,6 @@ class ToolNumbersController < ApplicationController
       render 'new'
     end
   end
-
-  def edit; end
 
   def update
     if @tool_number.update tool_number_params
@@ -52,5 +54,4 @@ class ToolNumbersController < ApplicationController
   def set_tool_number!
     @tool_number = @tool_list.tool_numbers.find params[:id]
   end
-
 end

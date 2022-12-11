@@ -1,0 +1,39 @@
+
+
+    <% provide :page_title, "Customer list" %>
+    <% currently_at "Customres" %>
+
+    <div class="d-flex flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Customers index</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <%= button_to "New customer", new_customer_path, :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "shared/flash" %>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @customers.each do |customer| %>
+            <tr>
+                <td><%= customer.name %></td>
+                <td><%= customer.lastname %></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= nav_tab "Edit", edit_customer_path(customer), :method => "get", :class => 'btn btn-sm btn-outline-secondary' %>
+                        <%= nav_tab "Delete", customer_path(customer), :method => "delete", :class => 'btn btn-sm btn-outline-danger', form: {data: {confirm: "Are you sure?"}} %>
+                    </div>
+                <td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

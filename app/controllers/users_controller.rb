@@ -3,9 +3,15 @@
 class UsersController < ApplicationController
   before_action :set_user!, only: %i[edit update destroy]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
+
+  def edit; end
 
   def create
     @user = User.new user_params
@@ -18,18 +24,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @users = User.all
-  end
-
-  def destroy
-    @user.destroy
-    flash[:success] = t(:user_deleted)
-    redirect_to users_path
-  end
-
-  def edit; end
-
   def update
     if @user.update user_params
       flash[:success] = t(:user_updated)
@@ -38,6 +32,12 @@ class UsersController < ApplicationController
       flash[:error] = t(:error)
       render 'edit'
     end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = t(:user_deleted)
+    redirect_to users_path
   end
 
   private

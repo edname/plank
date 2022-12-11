@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get "/questions/:id/edit", to: "questions#edit"
 
   resources :users, only: %i[index new create edit update destroy]
+  resources :customers, only: %i[index new create edit update destroy]
 
   resources :tool_categories do
     resources :tool_lists

@@ -1,0 +1,26 @@
+
+    <%= render "shared/errors", object: @customer %>
+
+    <%= form_with model: @customer do |f| %>
+
+        <div class="form-group">
+            <%= f.label :Name, "Name" %>
+            <%= f.text_field :name, :class => 'form-control', required: true, minlength: 2, placeholder: "Name" %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :Lastname, "Lastname" %>
+            <%= f.text_field :lastname, :class => 'form-control', required: true, placeholder: "Lastname" %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :Address, "Address" %>
+            <%= f.text_field :address, :class => 'form-control', required: true, placeholder: "Address" %>
+        </div>  
+
+        <div class="form-group" aria-label="Select user id">
+            <%= f.select :user_id, User.pluck(:email, :id), {}, { :class => 'form-select' } %>
+        </div>        
+
+        <%= f.submit :class => 'btn btn-primary mt-2' %>
+    <% end %>

@@ -9,3 +9,6 @@ Rent steps:
 5. Customer returns tool to the warehouse. Warehouse submits tool has been returned.
 6. After tool returned price is calculated by time it was used.
 
+
+Guides:
+https://guides.rubyonrails.org/active_record_querying.html
