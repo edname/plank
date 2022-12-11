@@ -19,8 +19,8 @@
         </div>  
 
         <div class="form-group" aria-label="Select user id">
-            <%= f.select :user_id, User.pluck(:email, :id), {}, { :class => 'form-select' } %>
-        </div>        
-
+            <%= f.label :user_id, "User id" %>
+            <%= f.collection_select :user_id, User.all, :id, :username, {include_blank: true, search_fields: [:id, :username]}, {:class => 'form-select'} %>
+        </div>    
         <%= f.submit :class => 'btn btn-primary mt-2' %>
     <% end %>

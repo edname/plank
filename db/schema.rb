@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_192150) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_11_171704) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192150) do
     t.string "name"
     t.string "lastname"
     t.string "address"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_customers_on_user_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192150) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
