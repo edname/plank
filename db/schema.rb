@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_11_171704) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_132303) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "tool_number_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_contracts_on_customer_id"
+    t.index ["tool_number_id"], name: "index_contracts_on_tool_number_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -71,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_11_171704) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "contracts", "customers"
+  add_foreign_key "contracts", "tool_numbers"
   add_foreign_key "customers", "users"
   add_foreign_key "tool_lists", "tool_categories"
   add_foreign_key "tool_numbers", "tool_lists"
