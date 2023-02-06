@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
-    @pagy, @answers = pagy @question.answers.order(created_at: :desc)
+    @pagy, @answers = pagy(@question.answers.order(created_at: :desc), items: 8)
     # @answers = @question.answers.order(created_at: :desc).page(params[:page]).per(2) -This was used for kaminari
     # @answers = Answer.where(question_id: @question.id).order created_at: :desc
     # @answers = Answer.where(question: @question).order created_at: :desc

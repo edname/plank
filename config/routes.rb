@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # post "/questions", to: "questions#create"
   # get "/questions/:id/edit", to: "questions#edit"
 
+  resources :sessions, only: %i[new create destroy]
   resources :users, only: %i[index new create edit update destroy]
   resources :customers, only: %i[index new create edit update destroy]
 
