@@ -22,18 +22,12 @@
     </button>
     <span class="navbar-text">
         <% if user_signed_in? %>
-          <li>
             <a class="nav-link px-2 text-white" href="#">
-              <%= current_user.name_or_email %>
+              <%= current_user.email %>
             </a>
-          </li>
         <% else %>
-          <li>
             <%= nav_tab 'Sign Up', new_user_path, class: 'nav-link px-2' %>
-          </li>
-          <li>
             <%= nav_tab 'Log In', new_session_path, class: 'nav-link px-2' %>
-          </li>
         <% end %>
     </span>
   </header>
