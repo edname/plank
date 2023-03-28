@@ -12,3 +12,6 @@ Rent steps:
 
 Guides:
 https://guides.rubyonrails.org/active_record_querying.html
+
+
+#9 23:38
