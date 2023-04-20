@@ -2,7 +2,8 @@
 
 class UsersController < ApplicationController
   before_action :set_user!, only: %i[edit update destroy]
-  before_action :require_no_authentication, only: %i[new create update destroy]
+  before_action :require_no_authentication, only: %i[new create]
+  before_action :require_authentication, only: %i[edit update destroy]
 
   def index
     @users = User.all
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_comfirmation)
+    params.require(:user).permit(:username, :email, :password, :password_comfirmation, :old_password, :new_password)
   end
 
   def set_user!

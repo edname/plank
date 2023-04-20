@@ -30,7 +30,15 @@
           %>
 
           <ul class="dropdown-menu">
-            <li><%= link_to 'Log Out', session_path, class: 'dropdown-item', data: {method: :delete} %></li>
+            <li><%= link_to 'Edit profile', 
+                    edit_user_path(current_user),
+                    class: 'dropdown-item text-secondary' %>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to 'Log Out', 
+                    session_path, class: 'dropdown-item text-secondary', 
+                    data: {method: :delete} %>
+            </li>
           </ul>
         </li>
       <% else %>

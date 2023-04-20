@@ -46,6 +46,7 @@ gem 'bootsnap', require: false
 
 gem 'pagy', '~> 5.10'
 gem 'draper', '~> 4.0'
+gem "valid_email2", '~> 4.0.6'
 
 gem 'prawn', '~> 2.4'
 
